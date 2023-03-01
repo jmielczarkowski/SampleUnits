@@ -6,7 +6,9 @@ namespace TestSample
     {
         [TestMethod]
         [TestCategory("Unit")]
-        [DataRow(new object[] { new char[] { 'a', 'b', 'd', 'b', 'a' }, 'b' })]
+        [DataRow(new object[] { new char[] { 'a', 'b', 'd', 'b', 'a', 'b'}, 'b' })]
+        [DataRow(new object[] { new char[] { 'a', 'b', 'd', 'b', 'a', 'b', 'b', 'a', 'a' }, 'b' })]
+        [DataRow(new object[] { new char[] { 'a', 'd', 'd', 'b', 'a', 'b', 'b', 'a', 'a' }, 'd' })]
         [DataRow(new object[] { new char[] { 'a', 'a' }, 'a' })]
         [DataRow(new object[] { new char[] { 'a', 'b', 'c', 'd', 'd' }, 'd' })]
         public void FindFirstRepeatingCharacter_Should_Return_Expected_Characters(object[] testInputDataWithResult)
@@ -14,7 +16,7 @@ namespace TestSample
             var charArray = testInputDataWithResult[0];
             var expectedResult = testInputDataWithResult[1];
             
-            var firstRepeatingCharacter = ArrayMethods.FindFirstRepeatingCharacter((char[])charArray);
+            var firstRepeatingCharacter = ArrayMethods.FindFirstRepeatingCharacter((char[]) charArray);
             
             Assert.AreEqual(expectedResult, firstRepeatingCharacter.result);
             Assert.AreEqual(expectedResult, firstRepeatingCharacter.result);
